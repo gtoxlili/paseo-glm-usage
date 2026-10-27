@@ -1,0 +1,14 @@
+{
+  "id": "glm-usage",
+  "name": "GLM Coding Plan usage",
+  "description": "Shows GLM Coding Plan quota windows from open.bigmodel.cn or api.z.ai in Paseo's Usage screen.",
+  "translations": {
+    "zh-CN": {
+      "name": "GLM 套餐用量",
+      "description": "在 Paseo 的用量页显示 GLM Coding Plan 在 open.bigmodel.cn 或 api.z.ai 上的额度窗口。"
+    }
+  },
+  "requirements": {
+    "paseo": ">=0.11.0"
+  }
+}

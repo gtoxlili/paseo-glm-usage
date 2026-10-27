@@ -1,0 +1,29 @@
+{
+  "name": "paseo-glm-usage",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Shows GLM Coding Plan quota windows in Paseo's Usage screen.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtoxlili/paseo-glm-usage.git"
+  },
+  "license": "MIT",
+  "files": [
+    "paseo-plugin.json",
+    "OVERVIEW.md",
+    "OVERVIEW.*.md",
+    "icon.svg",
+    "index.server.ts",
+    "server/",
+    "shared/"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@getpaseo/plugin": "0.13.2",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3",
+    "zod": "^4.4.3"
+  }
+}
