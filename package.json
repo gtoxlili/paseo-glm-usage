@@ -1,7 +1,7 @@
 {
   "name": "paseo-glm-usage",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shows GLM Coding Plan quota windows in Paseo's Usage screen.",
   "repository": {
     "type": "git",
