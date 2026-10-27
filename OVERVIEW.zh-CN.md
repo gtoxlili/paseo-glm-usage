@@ -1,4 +1,4 @@
-GLM 套餐用量把 GLM Coding Plan 的额度放进 Paseo 的用量页。它显示 5 小时窗口、有周限额的套餐的周窗口，以及月度 MCP 调用额度。每一行有已用百分比和重置时间，5 小时窗口和周窗口也会出现在用量摘要里。opencode 里用 `zhipuai-coding-plan/` 或 `zai-coding-plan/` 模型的 agent，点它的上下文环也能看到这张卡片。
+GLM 套餐用量把 GLM Coding Plan 的额度放进 Paseo 的用量页。它显示 5 小时窗口、有周限额的套餐的周窗口，以及月度 MCP 调用额度。每一行有已用百分比和重置时间，5 小时窗口和周窗口也会出现在用量摘要里。插件也会报告 opencode 里用 `zhipuai-coding-plan/` 或 `zai-coding-plan/` 模型的 agent 对应的账号，点这个 agent 的上下文环时会出现这张卡片。Paseo 目前只对 OpenCode 1.x 的会话查询这一项，OpenCode 2.x 的会话在上下文环里还不显示套餐用量。
 
 插件用你自己的 API 密钥请求套餐的额度接口。这个接口只覆盖套餐额度，按量计费的余额没有接口，所以不显示。Paseo 内置的 Z.ai 来源只报订阅状态，没有额度窗口，用国际站密钥时可能同时看到两张卡片。
 
