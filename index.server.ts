@@ -8,7 +8,7 @@ export default function contribute(server: PluginServerContext) {
     label: "GLM Coding Plan",
     icon: "icon.svg",
     input: inputSchema,
-    discover: (scope) => (scope.kind === "global" ? discover() : Promise.resolve([])),
+    discover,
     fetch: fetchUsage,
   });
   return () => {};

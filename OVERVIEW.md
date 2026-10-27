@@ -1,4 +1,4 @@
-GLM Coding Plan usage adds the plan's quota to Paseo's Usage screen. It shows the 5-hour window, the weekly window on plans that have one, and the monthly MCP call allowance. Each row has a percent used and a reset time, and the 5-hour and weekly windows also show in the usage summary.
+GLM Coding Plan usage adds the plan's quota to Paseo's Usage screen. It shows the 5-hour window, the weekly window on plans that have one, and the monthly MCP call allowance. Each row has a percent used and a reset time, and the 5-hour and weekly windows also show in the usage summary. An opencode agent on a `zhipuai-coding-plan/` or `zai-coding-plan/` model also shows the card when you tap its context meter.
 
 The plugin calls the plan's quota endpoint with your own API key. That endpoint covers plan quota only. A pay-as-you-go balance has no endpoint, so it is not shown. Paseo's built-in Z.ai source reports subscription status without any windows, so with an international key you may see both cards.
 

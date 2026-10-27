@@ -13,6 +13,7 @@ import {
   type UsageAccount,
   type UsageDetail,
   type UsageReport,
+  type UsageScope,
 } from "@getpaseo/plugin/server/usage";
 import {
   configSchema,
@@ -27,6 +28,11 @@ const execFileAsync = promisify(execFile);
 const HOSTS: Record<Region, string> = {
   cn: "https://open.bigmodel.cn",
   global: "https://api.z.ai",
+};
+// opencode names the Coding Plan providers this way; the model id is "<provider>/<model>".
+const OPENCODE_PROVIDERS: Record<string, Region> = {
+  "zhipuai-coding-plan": "cn",
+  "zai-coding-plan": "global",
 };
 const KEY_VARIABLES: Record<Region, readonly string[]> = {
   cn: ["ZHIPU_API_KEY", "ZHIPUAI_API_KEY", "BIGMODEL_API_KEY"],
@@ -173,7 +179,17 @@ export async function fetchUsage(
   return mapQuota(responseSchema.parse(await response.json()));
 }
 
-export async function discover(): Promise<UsageAccount[]> {
+export async function discover(scope: UsageScope): Promise<UsageAccount[]> {
+  if (scope.kind === "session") {
+    // An opencode agent on a Coding Plan model runs on the account configured here.
+    const region = scope.provider === "opencode" ? OPENCODE_PROVIDERS[scope.model?.split("/")[0] ?? ""] : undefined;
+    if (!region) return [];
+    return (await discoverGlobal()).filter((account) => account.key === region);
+  }
+  return discoverGlobal();
+}
+
+async function discoverGlobal(): Promise<UsageAccount[]> {
   const config = await readConfig();
   const region = config.region ?? "cn";
   let keySource: KeySource | null = null;
